@@ -14,6 +14,11 @@ public class Authentification
     public UserData getUser() {
         return this.user;
     }
+    //fizzzzzzzzz
+    public Boolean isRandomPass() {
+        return user.getRandPass();
+    }
+    
     public Boolean userExists() {
         return this.userExists;
     }

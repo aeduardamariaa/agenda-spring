@@ -9,12 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-// import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class LoginSceneController {
     // Vamos fazer uma função CreateScene que irá
@@ -64,15 +64,24 @@ public class LoginSceneController {
             alert.showAndWait();
             return;
         }
-        // // Fechando o login
-        // Stage crrStage = (Stage)btLogin
-        // .getScene().getWindow();
-        // crrStage.close();
-        // // Abrindo a tela principal
-        // Stage stage = new Stage();
-        // Scene scene = MainSceneController.CreateScene();
-        // stage.setScene(scene);
-        // stage.show();
+        // Fechando o login
+        Stage crrStage = (Stage)btLogin
+            .getScene().getWindow();
+        crrStage.close();
+
+
+        if (auth.isRandomPass()) {
+            Stage stage = new Stage();
+            Scene scene = PasswordSceneController.CreateScene();
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.showAndWait();
+        }
+
+        Stage stage = new Stage();
+        Scene scene = HomeSceneController.CreateScene(auth.getUser());
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 }
-

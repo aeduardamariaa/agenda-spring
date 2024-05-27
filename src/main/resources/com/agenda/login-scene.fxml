@@ -9,29 +9,31 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFF3FC;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.agenda.LoginSceneController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: FFF8E8;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.agenda.LoginSceneController">
    <children>
-      <TextField fx:id="tfLogin" layoutX="195.0" layoutY="159.0" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: EACCCA;" />
-      <Button fx:id="btLogin" layoutX="221.0" layoutY="330.0" mnemonicParsing="false" onAction="#submit" prefHeight="33.0" prefWidth="158.0" style="-fx-background-color: E19F9B;" text="Button" />
-      <Text layoutX="268.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <TextField fx:id="tfLogin" layoutX="195.0" layoutY="159.0" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #B8CEC9;" />
+      <Button fx:id="btLogin" layoutX="221.0" layoutY="330.0" mnemonicParsing="false" onAction="#submit" prefHeight="33.0" prefWidth="158.0" style="-fx-background-color: #FEC868;" text="Entrar">
          <font>
-            <Font name="Bosch Sans Global Regular" size="24.0" />
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Text fill="#443930" layoutX="77.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Realize seu login">
+         <font>
+            <Font name="Bosch Sans Global Bold" size="24.0" />
          </font>
       </Text>
-      <Label layoutX="195.0" layoutY="228.0" text="Password">
+      <Label layoutX="195.0" layoutY="228.0" text="Password" textFill="#443930">
          <font>
-            <Font name="Bosch Sans Global Regular" size="12.0" />
+            <Font name="Bosch Sans Global Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="195.0" layoutY="135.0" text="Username">
+      <Label layoutX="195.0" layoutY="135.0" text="Username" textFill="#443930">
          <font>
-            <Font name="Bosch Sans Global Regular" size="12.0" />
+            <Font name="Bosch Sans Global Bold" size="12.0" />
          </font>
       </Label>
-      <Circle fill="#eaccca" layoutX="36.0" layoutY="337.0" radius="119.0" stroke="#eaccca" strokeType="INSIDE" />
-      <Circle fill="#d6b3b1" layoutX="577.0" layoutY="363.0" radius="57.0" stroke="#eaccca" strokeType="INSIDE" />
-      <Circle fill="#d6b3b1" layoutX="20.0" layoutY="209.0" radius="57.0" stroke="#eaccca" strokeType="INSIDE" />
-      <PasswordField fx:id="pfPass" layoutX="195.0" layoutY="250.0" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: EACCCA;" />
+      <Circle fill="#8d9f5e" layoutX="36.0" layoutY="347.0" radius="119.0" stroke="#8d9f5e" strokeType="INSIDE" />
+      <Circle fill="#fda769" layoutX="577.0" layoutY="363.0" radius="57.0" stroke="#fda769" strokeType="INSIDE" />
+      <Circle fill="#cfd345" layoutX="20.0" layoutY="209.0" radius="57.0" stroke="#cfd345" strokeType="INSIDE" />
+      <PasswordField fx:id="pfPass" layoutX="195.0" layoutY="250.0" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #B8CEC9;" />
    </children>
 </Pane>
