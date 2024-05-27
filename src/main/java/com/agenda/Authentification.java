@@ -45,7 +45,7 @@ public class Authentification
 
         UserData loggedUser = users.get(0);
 
-        if (!loggedUser.getUserpass().equals(pass))
+        if (!loggedUser.getPassword().equals(pass))
             return auth;
             auth.user = loggedUser;
             return auth;

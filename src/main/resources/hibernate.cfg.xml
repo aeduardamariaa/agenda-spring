@@ -25,5 +25,6 @@
 
         <!-- toda vez que cria uma tabela, tem que criar uma nova classe -->
         <mapping class="com.agenda.model.UserData"/> 
+        <mapping class="com.agenda.model.Event"/> 
     </session-factory>
 </hibernate-configuration>
