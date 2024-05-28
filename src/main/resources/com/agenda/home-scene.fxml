@@ -5,7 +5,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFF8E8;" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.agenda.HomeSceneController">
    <children>
       <Text fill="#443930" layoutX="43.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Olá!">
@@ -13,7 +12,7 @@
             <Font name="Bosch Sans Global Bold" size="24.0" />
          </font>
       </Text>
-      <Button fx:id="tbNewEvent" layoutX="366.0" layoutY="35.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="202.0" style="-fx-background-color: FDA769;" text="Cadastrar novo evento" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btNewEvent" layoutX="366.0" layoutY="35.0" mnemonicParsing="false" onAction="#submit" prefHeight="40.0" prefWidth="202.0" style="-fx-background-color: FDA769;" text="Cadastrar novo evento" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Bosch Sans Global Bold" size="14.0" />
          </font>

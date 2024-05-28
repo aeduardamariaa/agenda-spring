@@ -1,6 +1,4 @@
 package com.agenda;
-
-import java.io.IOException;
 import java.net.URL;
 
 import com.agenda.model.UserData;
@@ -8,8 +6,12 @@ import com.agenda.model.UserData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.stage.Stage;
 
 public class HomeSceneController {
 
@@ -21,11 +23,13 @@ public class HomeSceneController {
         this.currenUser = currenUser;
     }
 
-    public static Scene CreateScene(UserData user) throws IOException {
+    public static Scene CreateScene(UserData user) throws Exception {
         URL sceneUrl = HomeSceneController.class.getResource("home-scene.fxml");
         FXMLLoader loader = new FXMLLoader(sceneUrl);
 
+        //teste
         Scene scene = new Scene(loader.load());
+        // fim-teste
 
         HomeSceneController controller = loader.getController();
         controller.setCurrenUser(user);
@@ -34,8 +38,19 @@ public class HomeSceneController {
     }
 
     @FXML
+    protected Button btNewEvent;
+    
+    @FXML
     protected void submit(ActionEvent e) throws Exception {
 
-    }
+        Stage crrStage = (Stage)btNewEvent
+            .getScene().getWindow();
+            crrStage.close();
 
+        Stage stage = new Stage();
+        Scene scene = RegisterSceneController.CreateScene(getCurrenUser());
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
+    }
 }
