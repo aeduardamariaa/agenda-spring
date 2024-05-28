@@ -72,16 +72,16 @@ public class LoginSceneController {
 
         if (auth.isRandomPass()) {
             Stage stage = new Stage();
-            Scene scene = PasswordSceneController.CreateScene();
+            Scene scene = PasswordSceneController.CreateScene(auth.getUser());
             stage.setScene(scene);
             stage.setResizable(false);
             stage.showAndWait();
+        }else {
+            Stage stage = new Stage();
+            Scene scene = HomeSceneController.CreateScene(auth.getUser());
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
         }
-
-        Stage stage = new Stage();
-        Scene scene = HomeSceneController.CreateScene(auth.getUser());
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
     }
 }
