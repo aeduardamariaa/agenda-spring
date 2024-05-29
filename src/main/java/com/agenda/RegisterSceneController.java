@@ -1,11 +1,8 @@
 package com.agenda;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
-
 import com.agenda.model.Event;
 import com.agenda.model.UserData;
 import javafx.event.ActionEvent;
@@ -18,7 +15,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.hibernate.Transaction;
-import org.hibernate.Query;
 import org.hibernate.Session;
 
 
