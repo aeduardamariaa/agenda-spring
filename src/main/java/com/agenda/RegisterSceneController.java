@@ -2,7 +2,11 @@ package com.agenda;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
+import com.agenda.model.Event;
 import com.agenda.model.UserData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -55,20 +59,16 @@ public class RegisterSceneController {
 
         Transaction transaction = session.beginTransaction();
 
-        Query query = session.createSQLQuery(
-            "insert into UserData values (:date, :description, 0, :name, :user )"
-        );
+        Event newEvent = new Event();
+        Date date = Date.from(
+            pkDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+        newEvent.setDate(date);
+        newEvent.setName(tfName.getText());
+        newEvent.setDescription(taDescription.getText());
+        newEvent.setUser(getCurrenUser());
+        newEvent.setDone(false);
+        session.save(newEvent);
 
-        LocalDate date = pkDate.getValue();
-
-        String dataString = "";
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        dataString = date.format(formatter);
-
-        query.setParameter("date", dataString);
-        query.setParameter("description", taDescription.getText());
-        query.setParameter("name", tfName.getText());
-        query.setParameter("user", getCurrenUser().getId());
         transaction.commit();
 
         Stage crrStage = (Stage)btSave
