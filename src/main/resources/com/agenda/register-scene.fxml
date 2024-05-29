@@ -16,9 +16,9 @@
             <Font name="Bosch Sans Global Bold" size="24.0" />
          </font>
       </Text>
-      <TextField layoutX="74.0" layoutY="108.0" />
-      <DatePicker layoutX="341.0" layoutY="108.0" />
-      <TextArea layoutX="74.0" layoutY="166.0" prefHeight="134.0" prefWidth="442.0" />
+      <TextField fx:id="tfName" layoutX="74.0" layoutY="108.0" />
+      <DatePicker fx:id="pkDate" layoutX="341.0" layoutY="108.0" />
+      <TextArea fx:id="taDescription" layoutX="74.0" layoutY="166.0" prefHeight="134.0" prefWidth="442.0" />
       <Label layoutX="74.0" layoutY="84.0" style="-fx-background-color: 443930.;" text="Nome do evento" textFill="#443930">
          <font>
             <Font name="Bosch Sans Global Bold" size="14.0" />
@@ -34,7 +34,7 @@
             <Font name="Bosch Sans Global Bold" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="274.0" layoutY="350.0" mnemonicParsing="false" style="-fx-background-color: #FDA769;" text="Salvar" textFill="WHITE">
+      <Button fx:id="btSave" layoutX="274.0" layoutY="350.0" mnemonicParsing="false" onAction="#submit" style="-fx-background-color: #FDA769;" text="Salvar" textFill="WHITE">
          <font>
             <Font name="Bosch Sans Global Bold" size="14.0" />
          </font>

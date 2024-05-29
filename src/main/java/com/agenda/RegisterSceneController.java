@@ -1,6 +1,8 @@
 package com.agenda;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import com.agenda.model.UserData;
 
@@ -8,10 +10,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import org.hibernate.Transaction;
 import org.hibernate.Query;
@@ -56,12 +62,29 @@ public class RegisterSceneController {
         Transaction transaction = session.beginTransaction();
 
         Query query = session.createSQLQuery(
-            "inset into UserData values (:date, :description, 0, :name, :user )"
+            "insert into UserData values (:date, :description, 0, :name, :user )"
         );
 
-        query.setParameter("date", pkDate.getValue());
+        LocalDate date = pkDate.getValue();
+
+        String dataString = "";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        dataString = date.format(formatter);
+
+        query.setParameter("date", dataString);
         query.setParameter("description", taDescription.getText());
         query.setParameter("name", tfName.getText());
         query.setParameter("user", getCurrenUser().getId());
+        transaction.commit();
+
+        Stage crrStage = (Stage)btSave
+            .getScene().getWindow();
+            crrStage.close();
+
+        Stage stage = new Stage();
+        Scene scene = HomeSceneController.CreateScene(currenUser);
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
     }
 }
