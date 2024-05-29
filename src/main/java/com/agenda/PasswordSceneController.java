@@ -5,7 +5,6 @@ import java.net.URL;
 import org.hibernate.Transaction;
 import org.hibernate.Query;
 import org.hibernate.Session;
-
 import com.agenda.model.UserData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -72,7 +71,7 @@ public class PasswordSceneController {
             Stage stage = new Stage();
             Scene scene = HomeSceneController.CreateScene(currenUser);
             stage.setScene(scene);
-            stage.setResizable(false);
+            // stage.setResizable(false);
             stage.show();
         }else{ 
             return;

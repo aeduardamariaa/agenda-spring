@@ -80,7 +80,7 @@ public class LoginSceneController {
             Stage stage = new Stage();
             Scene scene = HomeSceneController.CreateScene(auth.getUser());
             stage.setScene(scene);
-            stage.setResizable(false);
+            // stage.setResizable(false);
             stage.show();
         }
     }
