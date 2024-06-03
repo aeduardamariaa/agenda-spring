@@ -7,7 +7,9 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import com.agenda.model.Event;
 import com.agenda.model.UserData;
-import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,9 +31,7 @@ public class HomeSceneController {
         URL sceneUrl = HomeSceneController.class.getResource("home-scene.fxml");
         FXMLLoader loader = new FXMLLoader(sceneUrl);
 
-        //teste
         Scene scene = new Scene(loader.load());
-        // fim-teste
 
         HomeSceneController controller = loader.getController();
         controller.setCurrenUser(user);
@@ -43,7 +43,7 @@ public class HomeSceneController {
     @FXML
     protected Button btNewEvent;
     @FXML
-    protected Label lbConteudo;
+    protected ListView<String> listView;
     
     @FXML
     protected void submit(ActionEvent e) throws Exception {
@@ -71,16 +71,18 @@ public class HomeSceneController {
         query.setParameter("user", currenUser.getId());
         List<Event> events = query.list();
 
-        StringBuilder eventText = new StringBuilder();
+        ObservableList<String> eventList = FXCollections.observableArrayList();
 
         for (Event event : events) {
-            eventText.append(event.getName()+"\n");
-            eventText.append(new SimpleDateFormat("dd 'de' MMMM 'de' yyyy").format(event.getDate())+"\n");
-            eventText.append(event.getDescription());
-            eventText.append("\n-------------------------------------------------------------------------------------------------\n\n");
+
+            String details = event.getName() + "\n" +
+                            new SimpleDateFormat("dd 'de' MMMM 'de' yyyy").format(event.getDate())+ "\n" +
+                            event.getDescription();
+                            
+            eventList.add(details);
         }
         
-        lbConteudo.setText(eventText.toString());
+        listView.setItems(eventList);
 
         transaction.commit();
     }

@@ -17,7 +17,6 @@ public class Authentification
     public Boolean userExists() {
         return this.userExists;
     }
-      //fizzzzzzzzz
       public Boolean isRandomPass() {
         return user.getRandPass();
     }
@@ -53,37 +52,5 @@ public class Authentification
             return auth;
             auth.user = loggedUser;
             return auth;
-    }
-
-
-    // public static Authentification teste(String user) {
-    //     Authentification auth = new Authentification();
-    //     // Cria uma sessão
-    //     Session session = HibernateUtil
-    //     .getSessionFactory()
-    //     .getCurrentSession();
-
-    //     Transaction transaction = session.beginTransaction();
-    //     // Cria uma query com um parâmetro
-
-    //     Query query = session.createQuery(
-    //     "from UserData u where u.username = :user"
-    //     );
-    //     // evita o sql injection
-    //     query.setParameter("user", user);
-    //     // Chama a query
-    //     List<UserData> users = query.list();
-
-    //     transaction.commit();
-
-    //     if (users.size() == 0)
-    //         return auth;
-
-    //     auth.userExists = true;
-
-    //     UserData loggedUser = users.get(0);
-
-    //     auth.user = loggedUser;
-    //     return auth;
-    // }       
+    }     
 }
