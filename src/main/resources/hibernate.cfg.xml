@@ -6,7 +6,7 @@
         <!-- ARRUMAR DE ACORDO COM O BANCO -->
         <property name="hibernate.connection.url">jdbc:sqlserver://CT-C-001YQ\SQLEXPRESS;databaseName=agenda;integratedSecurity=true;encrypt=true;trustServerCertificate=true</property>
         <property name="hibernate.connection.integratedSecurity">true</property>
-        <property name="java.library.path">C:\Program Files\sqljdbc_12.\ptb\auth\x64\m6ssql-jdbc_auth-12.6.1.x64.dll</property>
+        <property name="java.library.path">C:\Program Files\sqljdbc_12.6\ptb\auth\x64\mssql-jdbc_auth-12.6.1.x64.dll</property>
         <!-- Arquivo que foi baixado -->
         <!-- JDBC connection pool settings -->
         <property name="hibernate.c3p0.min_size">5</property>
