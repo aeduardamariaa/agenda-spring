@@ -1,6 +1,5 @@
 package com.agenda;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import org.hibernate.Transaction;
 import org.hibernate.Query;
@@ -43,7 +42,7 @@ public class HomeSceneController {
     @FXML
     protected Button btNewEvent;
     @FXML
-    protected ListView<String> listView;
+    protected ListView<Event> listView;
     
     @FXML
     protected void submit(ActionEvent e) throws Exception {
@@ -65,24 +64,15 @@ public class HomeSceneController {
         Transaction transaction = session.beginTransaction();
 
         Query query = session.createQuery(
-            "from Event where IdUser = :user "
+            "from Event where IdUser = :user order by Date DESC"
         );
 
         query.setParameter("user", currenUser.getId());
         List<Event> events = query.list();
 
-        ObservableList<String> eventList = FXCollections.observableArrayList();
-
-        for (Event event : events) {
-
-            String details = event.getName() + "\n" +
-                            new SimpleDateFormat("dd 'de' MMMM 'de' yyyy").format(event.getDate())+ "\n" +
-                            event.getDescription();
-                            
-            eventList.add(details);
-        }
-        
+        ObservableList<Event> eventList = FXCollections.observableArrayList(events);
         listView.setItems(eventList);
+        listView.setCellFactory(param -> new ListCellUtil());
 
         transaction.commit();
     }
